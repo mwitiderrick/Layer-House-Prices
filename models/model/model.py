@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 from layer import Featureset, Train
 from tensorflow import keras
 from sklearn import metrics
-import custom_keras_loss
+from custom_keras_loss import custom_mae
 
 
 def train_model(train: Train, pf: Featureset("house_features")) -> Any:
@@ -30,7 +30,7 @@ def train_model(train: Train, pf: Featureset("house_features")) -> Any:
     model.add(keras.layers.Dense(5,activation='relu'))
     model.add(keras.layers.Dense(1))
 
-    model.compile(optimizer = keras.optimizers.Adam(learning_rate=0.07), loss = custom_keras_loss.custom_mae)
+    model.compile(optimizer = keras.optimizers.Adam(learning_rate=0.07), loss = custom_mae)
 
     epochs = 10
     train.log_parameter("Epochs", epochs)
