@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 from layer import Featureset, Train
 from tensorflow import keras
 from sklearn import metrics
-from custom_keras_loss import custom_mae
+from .custom_keras_loss import custom_mae
 
 
 def train_model(train: Train, pf: Featureset("house_features")) -> Any:
